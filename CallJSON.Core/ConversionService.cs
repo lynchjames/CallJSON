@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoJSON.Core
+namespace CallJSON.Core
 {
     public class ConversionService
     {

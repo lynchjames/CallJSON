@@ -3,7 +3,7 @@ using NVelocity;
 using NVelocity.App;
 using NVelocity.Context;
 
-namespace CoJSON.Core.NVelocity
+namespace CallJSON.Core.NVelocity
 {
     public static class NVelocityHelper
     {
@@ -12,13 +12,13 @@ namespace CoJSON.Core.NVelocity
         static NVelocityHelper()
         {
             velocity = new VelocityEngine();
-            velocity.AddProperty("assembly.resource.loader.assembly", new[] { "CoJSON.Core" });
+            velocity.AddProperty("assembly.resource.loader.assembly", new[] { "CallJSON.Core" });
             velocity.Init();
         }
 
         public static Template GetTemplate(TemplateEnum template)
         {
-            var location = string.Format("CoJSON.Core.NVelocity.Templates.{0}.vm", template);
+            var location = string.Format("CallJSON.Core.NVelocity.Templates.{0}.vm", template);
             if (velocity.TemplateExists(location))
             {
                 return velocity.GetTemplate(location);
@@ -32,6 +32,11 @@ namespace CoJSON.Core.NVelocity
             var template = GetTemplate(templateName);
             template.Merge(context, writer);
             return writer.GetStringBuilder().ToString();
+        }
+
+        public static string ToLower(this object input)
+        {
+            return input.ToString().ToLower();
         }
     }
 }

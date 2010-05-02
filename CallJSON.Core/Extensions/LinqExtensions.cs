@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace CoJSON.Core.Extensions
+namespace CallJSON.Core.Extensions
 {
     public static class LinqExtensions
     {

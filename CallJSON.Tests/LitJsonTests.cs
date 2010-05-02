@@ -6,7 +6,7 @@ using LitJson;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace CoJSON.Tests
+namespace CallJSON.Tests
 {
     [TestFixture]
     public class LitJsonTests : TestBase

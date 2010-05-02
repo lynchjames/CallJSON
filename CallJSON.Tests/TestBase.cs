@@ -1,7 +1,7 @@
-﻿using CoJSON.Core;
+﻿using CallJSON.Core;
 using NUnit.Framework;
 
-namespace CoJSON.Tests
+namespace CallJSON.Tests
 {
     [TestFixture]
     public class TestBase

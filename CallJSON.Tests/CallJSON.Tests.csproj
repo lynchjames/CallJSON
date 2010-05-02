@@ -57,14 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassSignatureTests.cs" />
     <Compile Include="LitJsonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoJSON.Core\CoJSON.Core.csproj">
+    <ProjectReference Include="..\CoJSON.Core\CallJSON.Core.csproj">
       <Project>{48DE4133-E86E-4DCB-99F2-2450E76D29E2}</Project>
-      <Name>CoJSON.Core</Name>
+      <Name>CallJSON.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
