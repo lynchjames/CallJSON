@@ -1,0 +1,12 @@
+﻿public class $name
+{
+    #foreach($property in $properties)
+    
+        #if($property.IsList)
+          public virtual List<$property.Type> $property.Name { get; set; }
+        #else
+          public virtual $property.Type $property.Name { get; set; }
+        #end
+
+    #end    
+}
