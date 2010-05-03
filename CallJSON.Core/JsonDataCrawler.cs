@@ -31,8 +31,8 @@ namespace CallJSON.Core
         private void CrawlRecursive(string name, JsonData data)
         {
             var classSignature = GetSignature(name, data);
-            var existingSignature = _existingSignatures.FirstOrDefault(x => x.Equals(classSignature));
-            if (data.IsObject)
+            var existingSignature = _existingSignatures.FirstOrDefault(x => x.Name == classSignature.Name);
+            if (data != null && data.IsObject)
             {
                 var keys = data.Keys;
                 if (existingSignature != null)
@@ -51,7 +51,11 @@ namespace CallJSON.Core
         {
             var signature = new ClassSignature();
             signature.Name = name;
-            signature.Type = data.GetJsonType();
+            signature.Type = GetJsonType(data);
+            if (data == null)
+            {
+                return signature;
+            }
             if (data.IsObject)
             {
                 var keys = data.Keys;
@@ -62,9 +66,15 @@ namespace CallJSON.Core
             }
             if (data.IsArray)
             {
-                data.ArrayContents.Where(x => x.IsObject || x.IsArray).ForEach(x => CrawlRecursive(signature.Name, x));
+                data.ArrayContents.Where(x => x.IsObject || x.IsArray).ForEach(
+                    x => CrawlRecursive(signature.Name, x));
             }
             return signature;
+        }
+
+        private JsonType GetJsonType(JsonData data)
+        {
+            return data != null ? data.GetJsonType() : JsonType.Object;
         }
     }
 

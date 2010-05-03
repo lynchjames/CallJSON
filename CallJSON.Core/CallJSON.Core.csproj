@@ -8,8 +8,8 @@
     <ProjectGuid>{48DE4133-E86E-4DCB-99F2-2450E76D29E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoJSON.Core</RootNamespace>
-    <AssemblyName>CoJSON.Core</AssemblyName>
+    <RootNamespace>CallJSON.Core</RootNamespace>
+    <AssemblyName>CallJSON.Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

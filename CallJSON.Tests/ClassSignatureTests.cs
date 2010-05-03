@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using CallJSON.Core;
 using LitJson;
 using Newtonsoft.Json;
@@ -10,9 +8,10 @@ using NUnit.Framework;
 
 namespace CallJSON.Tests
 {
-    [TestFixture]
     public class ClassSignatureTests : TestBase
     {
+        #region Data
+
         public class User
         {
             public string FirstName { get; set; }
@@ -40,23 +39,22 @@ namespace CallJSON.Tests
             public string City { get; set; }
         }
 
-        [Test]
-        public void Match_Similar_Class_Signatures()
+        private User SetupData()
         {
             var address1 = new Address()
-                              {
-                                  City = "Edinburgh",
-                                  HouseName = "The Manor",
-                                  HouseNumber = 136,
-                                  PostCode = "EH3 5AS"
-                              };
+                               {
+                                   City = "Edinburgh",
+                                   HouseName = "The Manor",
+                                   HouseNumber = 136,
+                                   PostCode = "EH3 5AS"
+                               };
             var address2 = new Address()
-            {
-                City = "Edinburgh",
-                HouseName = "The Dump",
-                HouseNumber = 666,
-                PostCode = "EH3 1GH"
-            };
+                               {
+                                   City = "Edinburgh",
+                                   HouseName = "The Dump",
+                                   HouseNumber = 666,
+                                   PostCode = "EH3 1GH"
+                               };
             var user = new User()
                            {
                                DateOfBirth = DateTime.Now.AddYears(-25),
@@ -73,11 +71,20 @@ namespace CallJSON.Tests
                                    JobTitle = "Line Manager",
                                    Address = address1
                                };
+            return user;
+        }
+
+        #endregion
+
+        [Test]
+        public void Match_Similar_Class_Signatures()
+        {
+            var user = SetupData();
             var json = JsonConvert.SerializeObject(user);
             var deserializedData = JsonMapper.ToObject(json);
             var crawler = new JsonDataCrawler(deserializedData, "User");
             var signatures = crawler.Crawl();
-            //Assert.AreEqual(signatures.Count, 3);
+            Assert.AreEqual(signatures.Count, 3);
             Debug.Write(signatures.ToString());
         }
     }

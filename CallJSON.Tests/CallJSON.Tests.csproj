@@ -8,8 +8,8 @@
     <ProjectGuid>{2A6E85BD-F11D-4538-84FA-E362E921645C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoJSON.Tests</RootNamespace>
-    <AssemblyName>CoJSON.Tests</AssemblyName>
+    <RootNamespace>CallJSON.Tests</RootNamespace>
+    <AssemblyName>CallJSON.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -58,12 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassSignatureTests.cs" />
+    <Compile Include="FacebookGeneratedPOCOs.cs" />
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="LitJsonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoJSON.Core\CallJSON.Core.csproj">
+    <ProjectReference Include="..\CallJSON.Core\CallJSON.Core.csproj">
       <Project>{48DE4133-E86E-4DCB-99F2-2450E76D29E2}</Project>
       <Name>CallJSON.Core</Name>
     </ProjectReference>
