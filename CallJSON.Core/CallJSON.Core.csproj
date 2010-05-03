@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassSignature.cs" />
+    <Compile Include="ClassSignatureCollection.cs" />
     <Compile Include="ConversionService.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="JsonDataCrawler.cs" />

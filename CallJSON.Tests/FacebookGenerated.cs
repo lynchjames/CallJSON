@@ -97,4 +97,58 @@ namespace CallJSON.Tests
         public virtual string category { get; set; }
         public virtual string id { get; set; }
     }
+
+
+
+    public class actions
+    {
+        public virtual string name { get; set; }
+        public virtual string link { get; set; }
+    }
+
+    public class data
+    {
+        public virtual string id { get; set; }
+        public virtual from from { get; set; }
+        public virtual string message { get; set; }
+        public virtual string icon { get; set; }
+        public virtual string attribution { get; set; }
+        public virtual List<actions> actions { get; set; }
+        public virtual string created_time { get; set; }
+        public virtual string updated_time { get; set; }
+        public virtual string picture { get; set; }
+        public virtual string link { get; set; }
+        public virtual string name { get; set; }
+        public virtual string caption { get; set; }
+        public virtual privacy privacy { get; set; }
+        public virtual int likes { get; set; }
+        public virtual comments comments { get; set; }
+        public virtual string source { get; set; }
+        public virtual string description { get; set; }
+    }
+
+
+    public class privacy
+    {
+        public virtual string description { get; set; }
+        public virtual string value { get; set; }
+    }
+
+    public class comments
+    {
+        public virtual List<data> data { get; set; }
+    }
+
+    public class Wall
+    {
+        public virtual List<data> data { get; set; }
+        public virtual paging paging { get; set; }
+    }
+
+    public class paging
+    {
+        public virtual string previous { get; set; }
+        public virtual string next { get; set; }
+    }
+
 }

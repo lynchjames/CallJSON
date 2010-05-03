@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using CallJSON.Core.NVelocity;
 using LitJson;
 using System.Linq;
 using CallJSON.Core.Extensions;
-using NVelocity;
 
 namespace CallJSON.Core
 {
@@ -15,14 +10,14 @@ namespace CallJSON.Core
         {
             Data = data;
             RootName = rootName;
-            _existingSignatures = new ClassSignatures();
+            _existingSignatures = new ClassSignatureCollection();
         }
 
         protected string RootName { get; set; }
         protected JsonData Data { get; set; }
-        private ClassSignatures _existingSignatures;
+        private ClassSignatureCollection _existingSignatures;
 
-        public ClassSignatures Crawl()
+        public ClassSignatureCollection Crawl()
         {
             CrawlRecursive(RootName, Data);
             return _existingSignatures;
@@ -43,7 +38,7 @@ namespace CallJSON.Core
                 {
                     _existingSignatures.Add(classSignature);
                 }
-                data.KeyList.Where(x => data[x].IsObject || data[x].IsArray).ForEach(x => CrawlRecursive(x, data[x]));
+                data.KeyList.Where(x => data[x] != null && (data[x].IsObject || data[x].IsArray)).ForEach(x => CrawlRecursive(x, data[x]));
             }
         }
 
@@ -76,60 +71,5 @@ namespace CallJSON.Core
         {
             return data != null ? data.GetJsonType() : JsonType.Object;
         }
-    }
-
-    public class ClassSignatures : List<ClassSignature>
-    {
-        public bool HasSignature(ClassSignature signature)
-        {
-            return this.Any(x => x.Equals(signature));
-        }
-
-        public override string ToString()
-        {
-            var code = string.Empty;
-            ForEach(x => code += x.ToString());
-            return code;
-        }
-    }
-
-    public class ClassSignature : IEquatable<ClassSignature>
-    {
-        public ClassSignature()
-        {
-            Properties = new ClassSignatures();
-        }
-
-        public string Name { get; set; }
-        public JsonType Type { get; set; }
-        public string TypeString { get { return Type.ToLower(); } }
-        public ClassSignatures Properties { get; set; }
-        public bool IsInTree { get; set; }
-
-        public bool Equals(ClassSignature other)
-        {
-            var signature = other;
-            if (signature == null)
-            {
-                return false;
-            }
-            return signature.Properties.All(x => PropertyNames.Contains(x.Name))
-                   || Properties.All(x => signature.PropertyNames.Contains(x.Name));
-        }
-
-        public override string ToString()
-        {
-            var velocityContext = new VelocityContext();
-            velocityContext.Put("signature", this);
-            return NVelocityHelper.MergeTemplate(velocityContext, TemplateEnum.Class);
-        }
-
-        public void Update(ClassSignature classSignature)
-        {
-            var newPropertyNames = classSignature.PropertyNames.Except(PropertyNames);
-            Properties.AddRange(classSignature.Properties.Where(x => newPropertyNames.Contains(x.Name)));
-        }
-
-        protected IEnumerable<string> PropertyNames { get { return Properties.Select(x => x.Name); } }
     }
 }
