@@ -134,6 +134,7 @@
   <ItemGroup>
     <Content Include="Content\Images\loading3.gif" />
     <Content Include="Content\Templates\Class.vm" />
+    <Content Include="Scripts\clipboard.swf" />
     <Content Include="Scripts\shBrushBash.js" />
     <Content Include="Scripts\shBrushCSharp.js" />
     <Content Include="Scripts\shBrushCss.js" />

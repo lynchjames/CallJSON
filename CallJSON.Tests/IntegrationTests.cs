@@ -33,6 +33,14 @@ namespace CallJSON.Tests
         }
 
         [Test]
+        public void Can_Convert_Youtube_JSON_To_POCOs()
+        {
+            var crawler = new JsonDataCrawler(JsonMapper.ToObject(YoutubeJSON), "YoutubeApi");
+            var code = crawler.Crawl();
+            Debug.Write(code);
+        }
+
+        [Test]
         public void Can_Convert_Twitter_JSON_To_POCOs()
         {
             var crawler = new JsonDataCrawler(JsonMapper.ToObject(TwitterSearchJSON), "Search");
@@ -61,5 +69,11 @@ namespace CallJSON.Tests
             Assert.IsNotNull(twitterSearchResults);
         }
 
+        [Test]
+        public void Can_Deserialize_Youtube_JSON_Using_Generated_Pocos()
+        {
+            var youtubeData = JsonConvert.DeserializeObject<youtube>(YoutubeJSON);
+            Assert.IsNotNull(youtubeData);
+        }
     }
 }

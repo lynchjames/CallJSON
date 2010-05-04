@@ -1,3 +1,4 @@
+using System;
 using LitJson;
 using System.Linq;
 using CallJSON.Core.Extensions;
@@ -47,6 +48,7 @@ namespace CallJSON.Core
             var signature = new ClassSignature();
             signature.Name = name;
             signature.Type = GetJsonType(data);
+            signature.ArrayContentsType = GetArrayContentsType(data);
             if (data == null)
             {
                 return signature;
@@ -59,17 +61,31 @@ namespace CallJSON.Core
                     signature.Properties.Add(GetSignature(key, data[key]));
                 }
             }
-            if (data.IsArray)
+            else if (data.IsArray)
             {
-                data.ArrayContents.Where(x => x.IsObject || x.IsArray).ForEach(
-                    x => CrawlRecursive(signature.Name, x));
+                data.ArrayContents.ForEach(x => CrawlRecursive(signature.Name, x));
             }
             return signature;
         }
 
+        private JsonType GetArrayContentsType(JsonData data)
+        {
+            var jsonTypes = new[] { JsonType.Array, JsonType.Object };
+            if (data != null && data.IsArray && data.ArrayContents != null && data.ArrayContents.Any())
+            {
+                var jsonType = data.ArrayContents.First().GetJsonType();
+                return jsonTypes.Contains(jsonType) ? JsonType.None : jsonType;
+            }
+            return JsonType.None;
+        }
+
         private JsonType GetJsonType(JsonData data)
         {
-            return data != null ? data.GetJsonType() : JsonType.Object;
+            if (data == null)
+            {
+                return JsonType.Object;
+            }
+            return data.GetJsonType();
         }
     }
 }

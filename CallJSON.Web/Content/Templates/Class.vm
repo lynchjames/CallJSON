@@ -3,7 +3,11 @@ public class $signature.Name
 {
 #foreach($property in $signature.Properties)
 #if($property.TypeString == "array")
+#if($property.ArrayContentsTypeString == "none")
     public List<$property.Name> $property.Name { get; set; }
+#else
+    public List<$property.ArrayContentsTypeString> $property.Name { get; set; }
+#end
 #elseif($property.TypeString == "object")
     public $property.Name $property.Name { get; set; }
 #else

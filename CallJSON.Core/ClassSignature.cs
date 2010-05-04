@@ -17,6 +17,8 @@ namespace CallJSON.Core
         public string Name { get; set; }
         public JsonType Type { get; set; }
         public string TypeString { get { return Type.ToLower(); } }
+        public JsonType ArrayContentsType { get; set; }
+        public string ArrayContentsTypeString { get { return ArrayContentsType.ToLower(); } }
         public ClassSignatureCollection Properties { get; set; }
         public bool IsInTree { get; set; }
 

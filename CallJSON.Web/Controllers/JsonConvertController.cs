@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security;
 using System.Web.Mvc;
 using CallJSON.Core;
 using CallJSON.Web.Models;
@@ -14,6 +15,7 @@ namespace CallJSON.Web.Controllers
             _conversionService = new ConversionService();
         }
 
+        [ValidateInput(false)]
         public JsonResult Post(string json, string rootName)
         {
             return Json(new JsonConversionModel(json, _conversionService.Convert(json, rootName)));

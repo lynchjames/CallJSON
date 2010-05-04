@@ -24,7 +24,6 @@
     		$("body").addClass("minimized");
     		var content = $("#content");
     		$(".preview").hide();
-    		//SyntaxHighlighter.all();
     		$("#convert-btn").click(function() {
     			content.addClass("loader-container");
     			var loader = $("#loader");
@@ -38,7 +37,7 @@
     				$("#jsonSubmitted pre").html(result.Json);
     				$("body").removeClass("minimized");
     				$("#codeResult pre").html(result.ConvertedCode);
-    				SyntaxHighlighter.all();
+    				SyntaxHighlighter.config.clipboardSwf = 'scripts/clipboard.swf';
     				SyntaxHighlighter.highlight();
     				$(".preview").show();
     			});
