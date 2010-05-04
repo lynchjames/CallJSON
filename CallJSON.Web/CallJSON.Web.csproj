@@ -134,6 +134,13 @@
   <ItemGroup>
     <Content Include="Content\Images\loading3.gif" />
     <Content Include="Content\Templates\Class.vm" />
+    <Content Include="Scripts\shBrushBash.js" />
+    <Content Include="Scripts\shBrushCSharp.js" />
+    <Content Include="Scripts\shBrushCss.js" />
+    <Content Include="Scripts\shBrushErlang.js" />
+    <Content Include="Scripts\shBrushJScript.js" />
+    <Content Include="Scripts\shBrushPlain.js" />
+    <Content Include="Scripts\shCore.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
