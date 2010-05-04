@@ -1,27 +1,30 @@
 ﻿using System.IO;
+using Commons.Collections;
 using NVelocity;
 using NVelocity.App;
 using NVelocity.Context;
+using NVelocity.Runtime;
 
 namespace CallJSON.Core.NVelocity
 {
     public static class NVelocityHelper
     {
-        private static readonly VelocityEngine velocity;
+        private static VelocityEngine _velocity;
 
         static NVelocityHelper()
         {
-            velocity = new VelocityEngine();
-            velocity.AddProperty("assembly.resource.loader.assembly", new[] { "CallJSON.Core" });
-            velocity.Init();
+            _velocity = new VelocityEngine();
+            var props = new ExtendedProperties();
+            props.AddProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, "D:/Development/CallJSON/CallJSON.Core/NVelocity/Templates");
+            _velocity.Init(props);
         }
 
         public static Template GetTemplate(TemplateEnum template)
         {
-            var location = string.Format("CallJSON.Core.NVelocity.Templates.{0}.vm", template);
-            if (velocity.TemplateExists(location))
+            var location = string.Format("{0}.vm", template);
+            if (_velocity.TemplateExists(location))
             {
-                return velocity.GetTemplate(location);
+                return _velocity.GetTemplate(location);
             }
             return null;
         }
@@ -32,11 +35,6 @@ namespace CallJSON.Core.NVelocity
             var template = GetTemplate(templateName);
             template.Merge(context, writer);
             return writer.GetStringBuilder().ToString();
-        }
-
-        public static string ToLower(this object input)
-        {
-            return input.ToString().ToLower();
         }
     }
 }

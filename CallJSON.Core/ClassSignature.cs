@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CallJSON.Core.Extensions;
 using CallJSON.Core.NVelocity;
 using LitJson;
 

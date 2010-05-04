@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallJSON.Core", "CallJSON.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallJSON.Tests", "CallJSON.Tests\CallJSON.Tests.csproj", "{2A6E85BD-F11D-4538-84FA-E362E921645C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallJSON.Web", "CallJSON.Web\CallJSON.Web.csproj", "{D4DF1799-CA3E-4C55-A531-59C15F4CEDF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{2A6E85BD-F11D-4538-84FA-E362E921645C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A6E85BD-F11D-4538-84FA-E362E921645C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A6E85BD-F11D-4538-84FA-E362E921645C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4DF1799-CA3E-4C55-A531-59C15F4CEDF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4DF1799-CA3E-4C55-A531-59C15F4CEDF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4DF1799-CA3E-4C55-A531-59C15F4CEDF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4DF1799-CA3E-4C55-A531-59C15F4CEDF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

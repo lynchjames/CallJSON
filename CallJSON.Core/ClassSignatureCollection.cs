@@ -16,7 +16,8 @@ namespace CallJSON.Core
         {
             var velocityContext = new VelocityContext();
             velocityContext.Put("signatures", this);
-            return NVelocityHelper.MergeTemplate(velocityContext, TemplateEnum.Class);
+            var code = NVelocityHelper.MergeTemplate(velocityContext, TemplateEnum.Class);
+            return code;
         }
     }
 }

@@ -1,0 +1,109 @@
+﻿body {
+  background-color: #3B3B3B;
+  font-size: 12px;
+  font-family: Verdana, Arial, Helvetica, SunSans-Regular, Sans-Serif;
+  color:#564b47;  
+  margin: 20px 140px  20px 140px;
+  text-align: center;
+}
+
+.minimized
+{
+	margin: 20px 590px 20px 590px;
+}
+
+h1, h2
+{
+	color: #FFF;
+}
+
+h2
+{
+	text-align: center;
+}
+
+#content { 
+
+  width: 100%;
+  padding: 0px;
+  text-align: left;
+  background-color: #fff;	
+  overflow: auto;
+}
+
+.preview
+{
+	background-color: #1B2426;
+}
+
+.preview div
+{
+	float: left;
+	width: 50%;
+}
+
+textarea
+{
+	width: 100%;
+	height: 200px;
+}
+
+input[type="text"]
+{
+	width: 100%;
+}
+
+.convertForm
+{
+	margin: 10px 15px 0 10px;
+}
+
+.convertForm input, .convertForm textarea, .convertForm span
+{
+	margin-bottom: 10px;
+}
+
+span.btn4 {
+	background:url(/Content/Images/btn_green_left.gif) 0 0 no-repeat;	
+	padding-left:34px;
+	text-align:center;
+	font-size:24px;
+	font-weight:700;
+	font-family:arial;
+	line-height:35px;
+	display:block;
+	height:49px;
+	width:300px;
+	margin: auto;
+}
+
+span.btn4 a {
+	background:url(/Content/Images/btn_green_right.gif) top right no-repeat;	
+	padding-right:34px;	
+	text-decoration:none;
+	color:#fff;
+	display:block;
+	height:49px;
+	cursor: pointer;
+}
+
+span.btn4 a:hover {
+	background:url(/Content/Images/btn_green_right.gif) top right no-repeat;	
+	padding-right:34px;	
+	text-decoration:none;
+	color:#799e35;
+	display:block;
+	height:49px;
+}
+
+#loader
+{
+	text-align: center;
+	background-color: #3B3B3B;	
+	margin-top: 250px;
+}
+
+.loader-container
+{
+	background-color: #3B3B3B !important;
+}

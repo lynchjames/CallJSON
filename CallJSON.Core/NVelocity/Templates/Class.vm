@@ -3,11 +3,11 @@ public class $signature.Name
 {
 #foreach($property in $signature.Properties)
 #if($property.TypeString == "array")
-    public virtual List<$property.Name> $property.Name { get; set; }
+    public List<$property.Name> $property.Name { get; set; }
 #elseif($property.TypeString == "object")
-    public virtual $property.Name $property.Name { get; set; }
+    public $property.Name $property.Name { get; set; }
 #else
-    public virtual $property.TypeString $property.Name { get; set; }
+    public $property.TypeString $property.Name { get; set; }
 #end
 #end
 }
