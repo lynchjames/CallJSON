@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Configuration;
+using System.IO;
 using Commons.Collections;
 using NVelocity;
 using NVelocity.App;
@@ -15,7 +16,7 @@ namespace CallJSON.Core.NVelocity
         {
             _velocity = new VelocityEngine();
             var props = new ExtendedProperties();
-            props.AddProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, "D:/Development/CallJSON/CallJSON.Core/NVelocity/Templates");
+            props.AddProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, ConfigurationManager.AppSettings["TemplateFolder"]);
             _velocity.Init(props);
         }
 
