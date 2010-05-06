@@ -18,9 +18,15 @@ h1, h2
 	color: #FFF;
 }
 
+h1 a
+{
+	color: #FFF;
+	text-decoration: none;
+}
+
 h2
 {
-	text-align: center;
+	margin-bottom: 5px;
 }
 
 #content { 
@@ -28,7 +34,6 @@ h2
   width: 100%;
   padding: 0px;
   text-align: left;
-  background-color: #fff;	
   overflow: auto;
 }
 
@@ -54,47 +59,44 @@ input[type="text"]
 	width: 100%;
 }
 
+.apiRequest input, .apiRequest label
+{
+	float: left;
+}
+
+.apiRequest .requestUri
+{
+	width: 70%;
+}
+
+.apiRequest .apiRootName
+{
+	width: 20%;
+	margin-right: 10px;
+}
+
+.apiRequest label.requestUri
+{
+	margin-left: 6px;
+}
+
 .convertForm
 {
 	margin: 10px 15px 0 10px;
 }
 
-.convertForm input, .convertForm textarea, .convertForm span
+.convertForm input, .convertForm textarea
 {
 	margin-bottom: 10px;
 }
 
-span.btn4 {
-	background:url(/Content/Images/btn_green_left.gif) 0 0 no-repeat;	
-	padding-left:34px;
-	text-align:center;
-	font-size:24px;
-	font-weight:700;
-	font-family:arial;
-	line-height:35px;
-	display:block;
-	height:49px;
-	width:300px;
-	margin: auto;
-}
-
-span.btn4 a {
-	background:url(/Content/Images/btn_green_right.gif) top right no-repeat;	
-	padding-right:34px;	
-	text-decoration:none;
-	color:#fff;
-	display:block;
-	height:49px;
-	cursor: pointer;
-}
-
-span.btn4 a:hover {
-	background:url(/Content/Images/btn_green_right.gif) top right no-repeat;	
-	padding-right:34px;	
-	text-decoration:none;
-	color:#799e35;
-	display:block;
-	height:49px;
+.convertBtn
+{
+	text-align: center !important;
+	display: block !important;
+	font-size: 120% !important;
+	margin: 10px auto 5px !important;
+	width: 205px;
 }
 
 #loader
@@ -107,4 +109,16 @@ span.btn4 a:hover {
 .loader-container
 {
 	background-color: #3B3B3B !important;
+}
+
+.clear
+{
+	clear: both;
+}
+
+.syntaxhighlighter
+{
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 500px !important;
 }

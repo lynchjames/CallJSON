@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
+﻿using System.Net;
 using System.Web;
 using LitJson;
 
@@ -18,18 +14,14 @@ namespace CallJSON.Core
             return HttpUtility.HtmlEncode(_crawler.Crawl().ToString());
         }
 
-        public string Convert(Dictionary<string,string> apiRequests, out string json)
+        public string ConvertUri(string uri, string rootName, out string json)
         {
-            var results = new ClassSignatureCollection();
-            json = string.Empty;
-            foreach (var apiRequest in apiRequests)
+            using(var client = new WebClient())
             {
-                var client = new WebClient();
-                json += client.DownloadString(apiRequest.Value);
-                _crawler = new JsonDataCrawler(JsonMapper.ToObject(json), apiRequest.Key);
-                results.AddRange(_crawler.Crawl());
+                json = client.DownloadString(uri);
             }
-            return HttpUtility.HtmlEncode(results.ToString());
+            _crawler = new JsonDataCrawler(JsonMapper.ToObject(json), rootName);
+            return HttpUtility.HtmlEncode(_crawler.Crawl().ToString());
         }
     }
 }
