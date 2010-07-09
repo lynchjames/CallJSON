@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallJSON.Core", "CallJSON.Core\CallJSON.Core.csproj", "{48DE4133-E86E-4DCB-99F2-2450E76D29E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallJSON.Tests", "CallJSON.Tests\CallJSON.Tests.csproj", "{2A6E85BD-F11D-4538-84FA-E362E921645C}"
