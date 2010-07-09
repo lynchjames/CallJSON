@@ -159,7 +159,7 @@
     <Content Include="Content\Css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\Css\jquery-ui-1.8.1.custom.css" />
     <Content Include="Content\Images\loading3.gif" />
-    <Content Include="Content\Templates\Class.vm" />
+    <EmbeddedResource Include="Content\Templates\Class.vm" />
     <Content Include="Scripts\clipboard.swf" />
     <Content Include="Scripts\jquery-ui-1.8.1.custom.min.js" />
     <Content Include="Scripts\shBrushBash.js" />
