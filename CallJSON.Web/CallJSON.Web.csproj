@@ -159,7 +159,9 @@
     <Content Include="Content\Css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\Css\jquery-ui-1.8.1.custom.css" />
     <Content Include="Content\Images\loading3.gif" />
-    <EmbeddedResource Include="Content\Templates\Class.vm" />
+    <EmbeddedResource Include="Content\Templates\Class.vm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Scripts\clipboard.swf" />
     <Content Include="Scripts\jquery-ui-1.8.1.custom.min.js" />
     <Content Include="Scripts\shBrushBash.js" />
@@ -187,8 +189,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62697</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1798</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
