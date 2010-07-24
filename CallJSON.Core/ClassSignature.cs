@@ -35,6 +35,14 @@ namespace CallJSON.Core
 
         public void Update(ClassSignature classSignature)
         {
+            foreach (var property in classSignature.Properties.Where(x => PropertyNames.Contains(x.Name)))
+            {
+                var existingProperty = Properties.FirstOrDefault(x => x.Name == property.Name);
+                if (property.Type != JsonType.Object)
+                {
+                    Properties[Properties.IndexOf(existingProperty)] = classSignature.Properties.FirstOrDefault(x => x.Name == property.Name);
+                }
+            }
             var newPropertyNames = classSignature.PropertyNames.Except(PropertyNames);
             Properties.AddRange(classSignature.Properties.Where(x => newPropertyNames.Contains(x.Name)));
         }
